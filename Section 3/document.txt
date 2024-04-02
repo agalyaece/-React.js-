@@ -1,0 +1,118 @@
+Section-3: React Essentials - Components, JSX, props, State and more
+
+1. It's all about components[core concepts]
+	components are UI building blocks
+	react apps are built by combining components, which are the foundation 
+	
+	Build UI with components:
+		Any websites or app can be broken down into smaller building blocks: components
+		It can also be built by creating and combining such components
+		components can be potentially reused
+		
+	why components?
+		1. Reusable building blocks:
+				creating small building blocks and compose the UI from them
+			if needed: Reuse a building blocks in different parts of UI(eg: reusable button)
+		2. Related codes live together:
+				Related HTML and JS (and probably CSS) code is stored together
+				since JS influences the output, storing JS+HTML together makes sense
+		3. Seperation of concerns:
+			Different components handle different data and logic
+			vastly simplifies the process of working on complex apps
+			
+			
+
+2. Setting up the Starting project:
+	local environment: Terminal
+		1. npm install
+		2. npm run dev -- to start the development server
+		
+
+3. JSX and React components[core concepts]:
+		react is for rendering components on screen
+		app.jsx ---> contains HTML code inside JS functions and extension is .jsx
+		
+	Describe the target UI with JSX:
+		JSX --> JavaScript syntax extension
+		used to describe and create HTML elements in JavaScript in a declarative way
+		but browsers doesn't support JSX
+		
+	React project come with a buildprocess that transforms JSX code (behind the screens) to code that does work in browsers
+	
+	component  functions must follow two rules:
+		1. Name starts with upper case characters
+			multi-word names -->pascalCase
+		2.Returns renderable content:
+			the function must return a value that can be rendered("displayed on screen") by React
+			
+
+4. Creating & Using a First Custom Component
+	include a custom created components in the app component by self-closing component tag
+	eg: <Header />
+	
+
+5. How React Handles Components & How It Builds A "Component Tree" [Core Concept]
+	CreateRoot and Render methods are responsible for rendering a single root component(App component) may contain as many custom components
+	
+	How components get rendered:
+		App ---->root component(first componentto be analyzed and renderd by react)
+		Header ---> Nested component (a child component of its parent component)
+		
+	React finally from component Tree to DOM node Tree
+	
+	JSX code leads to a tree-like code structure that tells React hoe the different components are related and how UI should like. It then executes appropriate commands to manipulate the real DOM to d=reflect that target structure/code
+	
+	It derives a component tree that's then used to perform commands that update the website DOM
+	
+	
+6. Using & Outputting Dynamic Values [Core Concept]
+		logic that produces the actual value is added to JSX
+		content/value is derived at runtime
+		
+		{} -->telling react we are outputting the dynamic values
+		if-statement, for-loops, function definitions and other block statement are not allowed
+		only expressions that directly produces a value is allowed
+		
+7. Setting HTML Attributes Dynamically & Loading Image Files
+	loads images and points images in a different way
+	import imageName from "path t that image"
+	<img src={imageName} />
+	
+8. Making Components Reusable with Props [Core Concept]
+	React allows to pass data to components via a concept called props
+	jsx code that uses a component --->component  ---> component function
+	
+	react component function that accepts only one parameter "props"
+		function CoreConcepts(props){
+		return ......
+		}
+	props are essentially custom attributes that can be set on components
+	
+9. Alternative Props Syntaxes
+	function CoreConcepts({image, title, definitions}){ ---> it is object destructuring of props parameter which target input parameter of props
+		return {image}
+				{title}
+				{definitions}
+		}
+ 
+10. Best Practice: Storing Components in Files & Using a Good Project Structure
+			storing different components in different files
+		export default or export in component file and import that component in app.jsx and component can be used
+		
+11. Storing Component Style Files Next To Components
+	 can move the component specific styles from index.css file to component specific CSS files
+	 maintaing the files next to component file is easy to maintaing
+	 
+12. Component Composition: The special "children" Prop [Core Concept]
+	childeren prop --> content between the component tag
+	
+	the childeren prop: 
+			react automatically passes a specialprop named "children" to every custom component
+	content for children:
+			content between component opening and closing tags is used as a value for the special "children prop"
+			
+	wrapping up the contents in between the custom created component is called component composition.
+
+	
+13. Reacting to Events [Core Concept]
+	
