@@ -1,0 +1,50 @@
+1. Module Introduction & Starting Project
+    Advanced DOM access and value management
+  1. Accessing DOM elements with Refs
+  2. Manging Values with Refs
+  3.Exposing API functions from components
+  4. detatching DOM rendering from JSX structure with portals
+
+2. Repetition: Managing User Input with State (Two-Way-Binding)
+      using useState() hook to hande playernamr input that we get from UI and updated the title
+
+3. Repetition: Fragments
+   A special JSX element called "React Fragment".
+      It can be used as a wrapper to ensure that there's only one root JSX element whilst at the same time not rendering any DOM element.
+  "React Fragments" (<Fragment> ... </Fragment> or <> ... </>).
+
+4. Introducing Refs: Connecting & Accessing HTML Elements via Refs
+      can connect to JSX elements with special prop: ref={} // input is passed inside a prop 
+
+5. Manipulating the DOM via Refs
+    When working with React, you can manipulate the DOM using refs. Refs provide a way to access, select, or manipulate a DOM node within a React component without passing props or triggering re-renders.
+    The useRef Hook returns an object with a single property called current.
+    while DOM manipulation is the most common use case for refs, the useRef Hook can also be used for storing other things outside React, like timer IDs.
+    Refs remain between renders and are like state variables that don’t trigger re-renders when you set them
+
+6. Refs vs State Values
+      state:
+        1. causes component re-evaluation(re-execution) when changed
+        2. should be used for values that are directly reflected in the UI
+        3. should not be used "behind the scenes" values that have no direct UI impact
+      Refs:
+        1. do not cause component re-evaluation when changed
+        2. can be used to gain direct DOM element access( -> great for rading values or accessing certain browser APIs).
+
+7. Adding Challenges to the Demo Project
+      added a TimeChallenge.jsx component
+      added props as title and targetTime for passing to the App component and setting values in the App component
+      maintaing state for startingTime and timeExpired using useState() Hook 
+      using onclick property to handle the change function when the button is clicked
+
+8. Setting Timers & Managing State   
+      to make the time to work used setTimeout() function of javascript and set counter to update according to the targetTime prop and update the state here
+
+9. Using Refs for More Than "DOM Element Connections"
+      making timers to work dynamically used useRef() hook to maintain the timer constant
+      this updates the DOM  and maintain state individually
+
+10. Adding a Modal Component
+      
+      
+      
