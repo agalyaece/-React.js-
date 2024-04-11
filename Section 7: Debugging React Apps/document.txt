@@ -1,0 +1,26 @@
+1. Module Introduction
+    -finding and fixing errors
+      1. making sense of react error messages
+      2. finding logical errors via the browser devtools and debugger
+      3. enabling react's strict mode
+      4. using react devTools for application analysis and manipulation
+
+2. Understanding React Error Messages
+      Reading and understanding the stack trace 
+      making a condition and return statements in our component  if such error condition prevails in app inorder to work our app without clasing
+
+3. Using the Browser Debugger & Breakpoints
+    chrome developer tools -->sources
+      breakpoints are there can step in and out to the required position of code execution  and can check the flow of execution
+
+4. Understanding React's "Strict Mode"
+  {strictMode} is a component from react and we can use it as a component in react
+  wrapped aroung the other component
+  using <strictMode> the program executes twice and can find bugs easier
+
+5. Using the React DevTools (Browser Extension)
+    React Developer Tools --< browser extension  can download and add it toour browser
+  under component tools --> can track the components, if maintains state can also seen here
+
+  
+      
