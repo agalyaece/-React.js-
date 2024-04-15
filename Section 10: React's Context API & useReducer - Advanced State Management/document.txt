@@ -1,0 +1,74 @@
+1. Module Introduction
+    -- Beyond basic apps and lifting state up
+        1. the problem of shared state: prop drilling
+        2.Embracing component composition
+        3.sharing state with context
+        4.managing complex state with reducers
+
+2.  Understanding Prop Drilling & Project Overview
+          passing data through multiple components layers without using that state instaed just passing state by the components --- prop drilling
+
+3. Prop Drilling: Component Composition as a Solution
+          wrapping the prop inside the app component without passing via props
+          and get that props via the children prop in the required component
+
+4. Introducing the Context API
+          Built into react -- context api
+          sharing data across component and component layers
+
+5. Creating & Providing The Context
+          creating files inside store folder 
+          create seperate file for each context
+
+          import {createContext} from "react"
+          creating constant or variables  equals to createContext() state --- values pased can be of anything like object
+
+          go to the components that is using all the other component to update the context
+          wrap the component with the context component via a special prop called provider
+           <CartContext.provider>
+           ......
+          .......
+          </ CartContext.provider>
+
+6.. Consuming the Context
+          consume the provider context feature in the required component
+
+          import the context file from the specified path
+          import {useContext} from "react" ----> importing the useContext hook 
+
+      const contextName = useContext(contextFileName) --- by this way can establish connections 
+
+          use contextName inplace of props
+        we need to set value for the provider function because the default value set when creating context is only used
+          if a component that was not wrapped by the provided components tries to access to the context value
+          
+
+7.  Linking the Context to State
+          this is done by adding the required prameters to the value function of the provider context  component
+
+8. A Different Way Of Consuming Context
+          a different way of accssing and reading context
+          consumer component can be used to wrap JSX conde that should has a access to the context values with it 
+
+          it needs csome special kind of content called JS funtion that pass between the opening and closing of the context tag
+          this function automatically receives a value that is passed to the context that is oriinal JSX code
+
+9. Outsourcing Context & State Into a Separate Provider Component
+          maintaing a context component into a seperate file
+          outsourcing all context and state management code into a seperate component file
+          creating multiple context files for multiple independent context in
+          just wrapping the components inside the app component
+
+10.  Introducing the useReducer Hook
+          when building more complex react apps context canbe a crutial feature since it can help in sharing state across the module component
+          state management itself in context
+          always passing the function for the state updating funtion based on previous state
+
+      another state management hook by react called useReducer() hook
+
+    reducer hook: Reducing one or more values to a typically simpler value for state management purposes
+          const [state, dispatch] = useReducer(reducerFunction, initialState)
+
+          reducer function should be defined outside the context function because it neednot to be executed for every updates
+            function reducerFunction(state, action){}
+
