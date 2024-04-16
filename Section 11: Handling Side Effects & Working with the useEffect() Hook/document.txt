@@ -1,0 +1,64 @@
+1. Module Introduction & Starting Project
+      -- Keeping the UI synchronized
+      1. understanding sideEffects and useEffects
+      2. effects and dependencies
+      3. when not to use useEffect()
+
+2. What's a "Side Effect"? A Thorough Example
+  sideEffects are "tasks" that don't impact the current component render cycle
+
+3. A Potential Problem with Side Effects: An Infinite Loop
+      when using the state management hook with sideEffect it reinitialize the app component everytime and we can't achieve to the desired goal. instead it endsup withthe infinite loop
+      to get rid of this problem we can use react's useEffect hook
+
+4. Using useEffect for Handling (Some) Side Effects
+      useEffect( () => {}, [])
+            () => {} ----> function to wrap the sideEffect code 
+            [] ----> array of dependencies of that effect function
+     this will get rid of the sideEffect problem
+    this function will be executed by ract after every component execution
+
+5.  Not All Side Effects Need useEffect
+        using useEffect unnecessarily is considered as a bad practice . 
+        this extra execution cycle that is triggered after whichever the component we are working in execution cycle
+      so want to avoid useEffect when we won't need it
+
+            1. to prevent infinite loops
+            2.if you have code that runs only after the component function executed atleast once
+
+  6. Using useEffect for Syncing With Browser APIs
+        useEffect helps to syncronize  prop values or state values to DOM APIs
+        as useEffect executes after the component function
+
+  7. Understanding Effect Dependencies
+        In addition, other effect dependencies wouldbe functions or context values that depend on or use state or props
+        useEffect only cares about dependencies that cause component function to execute again
+
+  8.Introducing useEffect's Cleanup Function
+         using useEffect we cann't just find the effect function but also cleanup function that should be executed before the effect function runs again
+        defining a cleanup function by returning it inside a effect function
+
+  9.  The Problem with Object & Function Dependencies
+			when adding function as dependencies there is a danger of creating the infinite loop
+			function in JS is typcally a value specifically they are objects and this function objects is recreated whenever the component function executes
+			objects specifically functions are not treated equal for every execution
+
+10. The useCallback Hook
+		wrap it around the function
+	useCallback(function, []);
+		returns a value specifically function that it wraps but now it is noe recreated whenever the sorrounding component function is executed again
+		inner function is not recreated instaed it stores in ternary memory that reuses that stored function  whenever the component function is executed again
+	so, only want to useCallback whenever we want to pass function as dependencies to useEffect hook
+	dependency ---> just as with useEffer, any other vlaue sthat i the end depend on state values
+
+
+11. useEffect's Cleanup Function: Another Example
+	returning a cleanup function inside the useEffect hook function will stop the loop from running indefinetely
+	to cleanup ongoing process behind scenes that are not needed anymore
+
+12.  Optimizing State Updates
+			making useEffect and cleanup function as seperate file makes the useCallback () is not to be executed after every time updates
+
+	
+
+        
