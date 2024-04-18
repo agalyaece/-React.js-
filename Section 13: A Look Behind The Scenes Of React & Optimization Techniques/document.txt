@@ -1,0 +1,65 @@
+1.Module Introduction
+      --- understanding and optimizing react
+        1. how react updates the DOM
+        2.Avoiding unnecessary updates
+        3.A closer look at keys
+        4. state scheduling and state batching
+
+2. React Builds A Component Tree / How React Works Behind The Scenes
+      How does react updates the DOM? and how the component function executed?
+    It 1st points the APP component
+    executes step by step and JSX xode is executed first
+  If there is custom components, then go to that component and continues execution
+  the relation b/w components is internally modelled as tree structure
+    
+3.  Analyzing Component Function Executions via React's DevTools Profiler
+
+4. Avoiding Component Function Executions with memo()
+    when any key stroke changes, then state changes then the whole APP component is rendered again
+    this is unnecessary, so, to avoid this unnecessary execution using memo() function to wrap the component functin as a value to the memo() function
+      memo() will do is, take a look at the props of the component function, when component function usually executes again
+
+      1. memo() compares ithe prop values
+      2. checks for counter component, -- equal counter component function will not execute again
+                                        -- unequal counter component function will  execute another time
+
+  don't overuse memo()
+        1. using it as high up in the component tree as possible 
+            --> blocking a component execution there will also block all child component execution
+        2. checking prop with memo() cost performance:
+            --> don't wrap it around all your component , it will add lots of unnecessay checks 
+        3. don't use it on component where props will change frequently
+
+  5. Avoiding Component Function Executions with Clever Structuring
+      moving the jsx code that causes the re-exeution of App component into a seperate file will make the clever technique
+      this will detatch the state also, s it makes the necessary component to run again when state changes
+
+  6.  Understanding the useCallback() Hook
+          react check sfor the necessary DOM updates via a virtual DOM
+          It creats & compares virtual DOM snapshots t findout which parts of the rendered UI need to be updated
+      How react updates the websiteUI?
+          step1: creating a component tree
+          step2: creating a virtual snapshots of the target HTML code
+          step3: compare the New VirtualDOM snapshots to previous(old) virtual DOM snapshots
+          step4: Identify& apply changes to the real DOM
+
+7. Why Keys Matter When Managing State!
+            state is tracked by positions in react
+            position of this component in the component tree, react tracks state bycomponent type and position(of that component) in the tree
+            for dynamically generated list, key in list item t map the state to a complete component
+            identifies the component in  a dynamic list of similar component
+            use key value strictly to the object no to the index
+
+  8. Using Keys For Resetting Components
+
+  9. State Scheduling & Batching
+            can't use the state value right after setting it , it initially takes the initial state value and then only updtaes the state
+
+  10. Optimizing React with MillionJS
+            MillionJS --- package
+          makes react to work faster
+          use it in automatic mode 
+          installation ---> npm install million
+            It is faster in execution
+
+            
