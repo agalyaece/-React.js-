@@ -1,0 +1,29 @@
+1. Module Introduction
+  some data mustbe managed centrally
+
+  react apps runs in the browser og your user, any data changes only happen locally(and are only stored locally)
+  clients communicate (send and fetch data) via HTTP request
+
+  DataFetching and HTTP requests:
+      -- sending & receiving data via HTTP
+  --->How to connect a backend/database
+  ---> fetching data
+  ---> sending data
+
+
+2. How (Not) To Connect To A Database:
+    don't connect your react App to a database
+      your react code runs in the browser of your user 
+      they can view that code (via the browser developer tools) if they want to!
+
+  There are also technical restrictions & constraints
+      not all operations can be performed in the browser
+      instaed communicate with a hack-end server instaed
+
+      frontend: <------HTTP Request------> backend
+        frontend: runs in the user's browser, users can theoritically view the entire code
+        backend: runs on a seperate (inaccessible) server, backend code can interact with database etc.,
+
+
+3. How NOT To Send HTTP Requests (And Why It's Wrong):
+                              
