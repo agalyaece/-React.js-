@@ -1,0 +1,54 @@
+1. Module Introduction
+      1.what and why
+      2. working with class-based components
+      3. error boundaries
+
+2. What & Why
+      functional components: components are regular javascript function which returns renderable resources(typically JSX)
+                              the default and most modern approach
+      class-based components: components can also be defined as JS classes where a render() method defines the to-be rendered output
+                              was required in the past
+
+          when using react prior to version 16.8, have to use class-based components to manage state
+        react 16.8 intoduced "react Hooks" for functional components
+        class-based components can't use react Hooks
+
+3. Adding a First Class-based Component
+      can add as many method as we want inside the class
+      render is a method expected by react which react will call when it finds a component been used in JSX code
+    react should find a method what should be rendered on the screen 
+
+  render() is equvalent to return statement in functional components
+  props property canbe accessed by this.props keyword
+
+    class-based components can work together with functional components
+
+4. Working with State & Events
+      don't add function inside the class component
+      simply add a method name only inside the functon
+  define the state inside a constructor(){}
+  initialize using this.state() and it also has to be a property named "state"
+  one state object that groups together
+  react merges with newly updated state with the existing state
+      this.setState({})
+
+5. The Component Lifecycle (Class-based Components Only!)
+        sideEffects in functional Component: useEffect() ---------> class-based components can't use Hooks!
+          1. componentDidMount()
+          2.componentDidUpdate()
+          3.componentWillMount()
+
+6.  Class-based Components & Context
+        only connect a class-based components to one context by adding static contextType=usersContext;
+
+7.. Class-based vs Functional Components: A Summary
+    strong recommendation: you should prefer functional components
+
+    use class-based components if 
+          1. you prefer them
+          2. you're working on an existing project or a teamwhere they are getting used
+          3. you're building an error boundary
+
+8. Introducing Error Boundaries
+      componentDidCatch() component is added to any error boundary component
+      can't add it to functional components
