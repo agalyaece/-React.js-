@@ -17,6 +17,7 @@
       they can view that code (via the browser developer tools) if they want to!
 
   There are also technical restrictions & constraints
+    
       not all operations can be performed in the browser
       instaed communicate with a hack-end server instaed
 
@@ -25,5 +26,45 @@
         backend: runs on a seperate (inaccessible) server, backend code can interact with database etc.,
 
 
-3. How NOT To Send HTTP Requests (And Why It's Wrong):
-                              
+3. Preparing the App For Data Fetching
+    open seperate terminal for frontend and backend
+frontend: npm install  npm run dev
+backend: cd backend|  node app.js
+
+4. How NOT To Send HTTP Requests (And Why It's Wrong)
+      fetch() ---> provided by browser
+          It is a function used to send HTTP request to other servers
+  promise is a standard JS object that yields different values depending on the state of promise & to access those different values can chain methods
+  calling fetch directly inside the component function will executed everytime when component function is executed
+  therefore It produces the infinite loop
+
+5. Sending HTTP Requests (GET Request) via useEffect
+      useEffect(() => {
+              fetch("http://localhost:3000/places")
+      }, [])                             
+
+
+6. Using async / await
+      creating a function inside useEfect & combine async/await process to produce the same effect of fetching data
+
+7. Handling Loading States
+      maintain seperate state for loading info
+      set the state value inside the function in useEffect hook
+
+8. Handling HTTP Errors
+    fetching data in apps ha to maintain three states
+      1. data state --> for storing data
+      2. loading state ---> used to tell user that currently fetching data
+      3. error state ---> show error on screen
+  maintain error file & make code to run in try/catch block will be effective in error handling
+
+9. Sending Data with POST Requests
+    involves making HTTP requests to a specific web address. 
+  Once you know the server address, use the fetch API to send the POST request
+The body parameter contains the data you want to send (in this case, the JSON data)
+
+
+10. Deleting Data (via DELETE HTTP Requests)
+    Deleting data via HTTP DELETE requests in React is essential when interacting with APIs or databases.
+
+    
