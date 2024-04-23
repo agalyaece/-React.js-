@@ -1,0 +1,27 @@
+1. Module Introduction & Starting Project
+    -creating and using React Hooks:
+      1. Repetition: rules of hook
+      2. Why custom hooks?
+      3. creating custom Hooks
+      4. using Custom Hooks
+
+2. Revisiting the "Rules of Hooks" & Why To Use Hooks
+        1. only call hooks in component or other hook function
+              must not be called outside of react component function or other hook function
+        2. only call hooks on the top level
+              must not be called in nested code statements(eg: inside if-statement)
+
+      makes code more generic and can reuse it 
+      one reusable and configurable function
+
+3. Creating a Custom Hook
+        1. create a seperate file for hook that has to be customised
+        2. creating a standard function and the name starts with use
+                function usenameOfCustomHook(){}
+
+4. Custom Hook: Managing State & Returning State Values
+    the logic for managing those different built-in hooks like useState, useEffct and HTTP request all lives inside the custom hooks
+    in our component we can simply use that custom hook and we get all behaviour and functionality of the hook
+
+
+    
