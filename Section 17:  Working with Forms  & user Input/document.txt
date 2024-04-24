@@ -1,0 +1,82 @@
+1. Module Introduction & Starting Project
+      1. what is diffucilt about forms?
+      2.handling form submissins and validating user input
+      3. using  built-in form features
+      4. building custom solutions
+
+2. What Are Forms & What's Tricky About Them?
+      forms --> collection of input fields
+  what's     so difficuilt?
+      1. form submission
+            ---handling submission is relatively easy
+            ---entered values canbe managed via state 
+            ---alternatively, they can be extracted via refs
+            ---or via formData and native browser features
+      2. input validation
+            ---providing a good user experience is tricky
+            ---can validate on every keystroke ---> errors maybe shown too early
+            ---can validate on lost focus ---> errors maybe shown too long
+            ---can validate on form submission ---> errors maybe shown too long
+
+  3. Handling Form Submission
+      by default browser sends a HTTP requests
+          server(serves the react app) --->js+ html + css to users visiting the website
+          client(react app running in the browser) ----> browser automatically creates & sends a http requests with entered form data
+    often data should be sent to a backend
+
+  4. Managing & Getting User Input via State & Generic Handlers
+      maintaining single state and passing email and password as objects as initial state
+      adding identifier to the state handling functions and target different objects using it
+      by changing the values in correcsponding fields the form ets works
+
+  5. Getting User Input via Refs
+        defining refs for email& password
+        access those refs using ref prop inside the element
+        can gethold of the values by email.current.value
+    this approach is not recommended
+
+        endsup with more refs incase of compllex apps
+        want to setup and connect those refs manually is difficuilt while dealing with multiple input elements
+
+  6. Getting Values via FormData & Native Browser APIs
+        setting up statevalues & different refs can be a lot of work
+        therefore want to consider native built-in feature to get hold all the entered values
+        browsers handles the form submission
+        creates special type of constructor function called FormData()
+      must have the name prop in form
+
+  7. Resetting Forms
+        canbe done in two types:
+          1. <button type="reset" >
+        2. event.target.reset () 
+
+8. Validating Input on Every Keystroke via State
+    Validating Input on Every Keystroke via State is possible
+      when component function is executed again
+      when validating on every keystroke, errors maybe shown too early
+
+9. Validating Input Upon Lost Focus (Blur)
+      using built-in blur prop 
+      onBlur event is default browser event is activated whenever the input loses the focus
+      handle with state updating function
+         can validate on lost focus ---> errors maybe shown too long
+      combining validation on keystroke with lost focus and resetting that focus state whenever user starts typing again canbe a good pattern for validating user input
+
+  
+10.  Validating Input Upon Form Submission
+       canbe used with refs
+      manage the invalid input with state updating function
+
+11. Validating Input via Built-in Validation Props
+      added to input elemen, requires props and it also takes type prop as validation
+
+12. Mixing Custom & Built-in Validation Logic
+      managing some extra stte to our own validation  and can combine with built-in props
+
+13. Using Third-Party Form Libraries
+    the most popular form of libraries are
+      1. react hook form
+      2. formik
+  these wouldbe helpful in getting hold of user input and validating the input
+  
+        
