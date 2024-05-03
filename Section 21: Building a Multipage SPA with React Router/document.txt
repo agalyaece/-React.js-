@@ -1,0 +1,88 @@
+1. Module Introduction
+    In previous projects all anavigation actions happen on the same page-- URL will never change
+    Linking to a sub-page is therefore impossible
+  if user wants to visit different pages, able to load different URL
+
+  Single page application routing play a major role  -- Multipages in a single page apps
+      1. what & why
+      2. using react router -- package that brings the multipage to single page react app
+      3. data fetching and submission --how react router helps & simplifies the process
+
+
+2. Routing: Multiple Pages in Single-Page Applications
+      what is routing?
+            different URL parse loaded different contents on the screen(visible contents changes)
+
+      multipage routing:
+        page change = new request + response ----> HTML is requested and loaded
+  building SPA:
+        when building complex user INterface, we typically build SPA
+            --- only one initial HTML request and response
+            --- page(URL) changes are then handled by client-side react code
+            --- visible content is changed without fetching a new HTML file
+
+
+3. Project Setup & Installing React Router
+          npm install react-router-dom 
+              --- belongs to react router tool
+
+      Adding routing is multistep process
+            step1: must define the routes that we want to support, which URL/paths want to support & which component want to be loaded for different paths
+            step2: to ativate the router & load the route definitions that defined in step 1
+            step3: make sure that all components that do want to load and navigate
+
+
+
+4.  Defining Routes
+                routes are simply path <==> component mappings
+            so for which path (like "/products") should which component(like <products />) be loaded?
+              routes are defined using {createBrowserRouter}
+
+5. Exploring an Alternative Way of Defining Routes
+      By passing the JSX code by creating the createRouteFromElements() 
+      and using the <Route> </Route>
+      by sending the path and element as parameter
+
+6.  Navigating between Pages with Links
+      import { Link } from "react-router-dom";
+          --- is used to construct link
+            "to" attribute is used t refer a path it wants to go for
+
+        prevents thee default http link to be happened & creates the routes and load different pages according to the interaction
+        changing the URL without sendinjg new HTTP request
+
+
+  7. Layouts & Nested Routes
+            import { Outlet } from "react-router-dom";
+                    ---- this marks the space where the child component gets reladed
+            path dependent layout wrappers
+            to provide general styling and navigation bar
+          add extra route to route definitions
+
+
+  8. Working with Navigation Links (NavLink)
+              import { NavLink } from "react-router-dom";
+                  ---- this can be used as a replacement for link with one special behaviour
+              if adding the classname prop takes function that returns the class name
+
+  9. Navigating Programmatically
+           import { useNavigate } from "react-router-dom";   
+                    and assigning onClick prop to a button and define a function that uses usNavigate through routes
+
+  10. Defining & Using Dynamic Routes
+                      dynamic path identifier
+                    {path: "/products/:identifier_name", element: <IdentifierDetails />}
+        useParams ---> this hook give the params object
+        params --> simple JS object which contains every dynamic pathsegment we defined in our route definition as property
+          import { useParams } from "react-router-dom"; 
+
+11. Understanding Relative & Absolute Paths
+      "/" ---> for denoting absolute path
+      "products" ----> for denoting relative path
+  stick to relative path when the child appends
+  <Link to=".."> --------> goes to the previous page while using relative path
+
+
+12. Working with Index Routes
+    default route that should be displayed while if current route "/" is active
+{index: true} // default route
