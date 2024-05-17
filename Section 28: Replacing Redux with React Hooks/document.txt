@@ -1,0 +1,15 @@
+1.Module Introduction
+      replacing redux with context + hooks
+      a totally optional of reducing your dependencies
+
+2.Alternative: Using the Context API 
+          Create a context using createContext(MockData).
+              1.Define a provider component using Context.Provider to wrap the child components that need access to the shared data.
+              2.Consume the data within child components using useContext(Context).
+          Context API is lightweight and integrated by design
+
+3.Getting Started with a Custom Hook as a Store
+          Begin by declaring a function that starts with use, such as useCustomStore().
+          Inside this function, you can use other hooks like useState, useEffect, and useContext.
+            Import and use your custom hook in any component
+
