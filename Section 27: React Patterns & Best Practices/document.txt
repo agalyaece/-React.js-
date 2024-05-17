@@ -1,0 +1,26 @@
+1. Module Introduction
+      exploring advanced react patterns and repeating key best practices
+          1. common patterns and practices
+          2. compound components, render props and more
+          3. applied to demo project
+
+2. Introducing Compound Components
+            multiple components that don't work standalone but instead together
+          for using dropdown menu like accordian component
+
+3.  Managing Multi-Component State with the Context API
+            merge all component identifiers into one object
+            uses main wrapping objects
+
+4. Introducing & Using Render Props
+            passing a function as value for the children prop
+        for searching option and includes search logic
+
+5.  Implementing a Search Functionality With Help Of Render Props
+            render props allows the complete rendering props
+            how something should be rendered out of the components
+
+6. Working with Debouncing
+          Debouncing is a technique where we don't update a state on every keystroke
+            but instead to find some timing threshold to update where the user stops typing for specified milliseconds
+            
