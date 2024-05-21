@@ -1,0 +1,92 @@
+1. Module Introduction
+      -- automated testing
+    1. what is testing and why
+    2. understanding unit tests
+    3. testing react components and building blocks
+
+
+2. What & Why?
+    manual testing: 
+        write code --> preview & test in browser -->  improve code ---> repeat
+        very important: you see what users see
+               error prone --> it is hard to always test all posible combinations and scenarios
+
+    Automated testing:
+        write code that automatically tests your code 
+        test the individual building blocks of the app
+              requires extra knowledge (--> how to write tests) but allows you to test all building blocks of the app
+
+
+3. Understanding Different Kinds Of Tests
+        1. unit tests
+              tests individual building blocks (functions, components) in isolation
+              projects typically contains hundreds of unit tests
+                  ---- the most common/important kind of tests
+        2. integration tests:
+              tests  the combination of multiple building blocks
+              projects typically contain a couple of integration tests
+                  --- also important, but focus on unit tests in most cases
+        3. ent-to-end (E2E) tests:
+              test complete scenarios/ user flow in app (as the user would experience them)
+              projects typically contain only a few E2E tests
+                    --- important but can also be done manually(partialy)
+
+
+4. What To Test & How To Test
+        what: 
+            test the different app building blocks
+            unit tests: the smallest building blocks that make up your app
+        how: 
+            tests success and error cases
+            also tests rare (but possible) results
+
+
+5. Understanding the Technical Setup & Involved Tools
+          need a tool for running our tests and asserting the results ----> Jest
+          need a tool for "simulating" (rendering) our react app/component ------> react testing library
+
+              both tools are already setup for you when using create-React-app
+
+
+6.  Running a First Test
+              file name structure ---> same as component name.test.js
+            1. npm test  // initiates the test compiler
+              this gives the test result on the console
+
+
+7. Writing Our First Test
+              writing tests -- three A's
+                  1.Arrange --> set up the test data, test conditions and test environment
+                  2. Act --> run logic that should be tested(eg. execute function)
+                  3. Assert --> compare execution results with expected results
+
+          screen ---> gives access to the virtual dom
+
+              get --> throws an error if element is not found
+              query --> don't do anything
+              find---> returns a promise
+
+        expect()  ---> passes the testing value
+        test() ---> inculdes the test code 
+
+
+
+8. Grouping Tests Together With Test Suites
+          creating testing suite by global describe() function
+              describe(description, anynomous function)
+                      ----can group several tests inside this anynomous function
+
+9. Testing Asynchronous Code
+              wait until the promise is received
+
+10. Working With Mocks
+              sending requests to API and fetching data while testing involves creating a network traffic in API
+              so, it is not recommended to do this
+            check for if components works correctly for the response
+              therefore replace fetch function with dummy funtion "mock"
+                  
+                  window.fetch = jest.fn(); // this create mock function
+                  window.fetch.mockReusedValueOnce({promise value}); 
+    
+
+              
