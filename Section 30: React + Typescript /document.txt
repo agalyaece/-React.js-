@@ -1,0 +1,7 @@
+1.Module Introduction
+      -- adding type safety to react apps
+          1. what and why
+          2. typescript basics
+          3. combinig react and typescript
+
+2.  What & Why?
